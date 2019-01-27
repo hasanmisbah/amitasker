@@ -1,6 +1,8 @@
 
 # AMITASKER
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/67f76305d0a842f0950cd3156c617f37)](https://app.codacy.com/app/hasanmisbah/amitasker?utm_source=github.com&utm_medium=referral&utm_content=hasanmisbah/amitasker&utm_campaign=Badge_Grade_Dashboard)
+
 Frond end Template for social media management company
 
 ## Installation
