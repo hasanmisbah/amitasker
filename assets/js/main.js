@@ -1,7 +1,5 @@
-'use strict';
-$(document).ready(function () {
-    amitasker();
-});
+"use strict";
+
 
 let amitasker = function () {
 
@@ -216,4 +214,7 @@ let counting = function () {
             }
         );
     });
-}
+};
+$(document).ready(function () {
+    amitasker();
+});
