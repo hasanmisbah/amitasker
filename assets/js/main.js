@@ -32,8 +32,82 @@ let amitasker = function () {
 
         },
         plugin: function () {
-            $(".skillbar").skillbar();
-            o.init()
+            // $(".skillbar").skillbar();
+
+            // skillbar data call
+            o.init();
+
+            $('.client-slider').slick({
+                slidesToShow: 4,
+                slidesToScroll: 2,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                cssEase: 'ease',
+                dots: false,
+                infinite: true,
+                arrows: false,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3,
+                            infinite: true,
+                            dots: true
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+
+            });
+            $('.testimonial-slider').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                dots: true,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3,
+                            infinite: true,
+                            dots: true
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+            $('.counting').counterUp({
+                delay: 10,
+                time: 1000
+            });
         }
     }
     data.init();
@@ -100,5 +174,46 @@ var o = {
         });
 
     }
-}
+};
 
+
+
+var waypoint = new Waypoint({
+    element: $('#company-stats'),
+    handler: function (direction) {
+        let dir = direction;
+        if(dir == 'down'){
+            counting();
+        }
+        //counting();
+       // alert('done');
+       console.log(direction);
+    }
+});
+
+let counting = function () {
+    let $counter = $('.counting');
+    $counter.each(function () {
+
+        
+        var $this = $(this),
+            countTo = $this.val();
+            console.log(countTo);
+        $({ countNum: $this.text() }).animate(
+            {
+                countNum: countTo
+            },
+
+            {
+                duration: 8000,
+                easing: "linear",
+                step: function () {
+                    $this.text(Math.floor(this.countNum));
+                },
+                complete: function () {
+                   // $this.text(this.countNum);
+                }
+            }
+        );
+    });
+}
